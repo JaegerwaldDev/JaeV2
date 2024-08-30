@@ -1,2 +1,3 @@
-# JaeAvatar
- Figura Avatar 4 me :3
+# Jae Figura Avatar
+
+May be modified to make your own, but original may not be redistributed.
