@@ -1,0 +1,32 @@
+About
+  Folders are very nice to have on action wheels, so I made a
+  function to dynamically generate them, and for managing pages.
+
+Usage
+  The CustomActionWheelAPI automatically generates a main page,
+  which is accessible with the following code:
+-----
+local actionWheel = require("action_wheel")
+print(actionWheel.pages["main"])
+-----
+  To dynamically load and create folders, use the following code:
+-----
+local actionWheel = require("action_wheel")
+--      "main" used as ex., anything works vvvv
+actionWheel.loadFolders(actionWheel.pages["main"], {
+    {<page id (string)>,<action wheel title>,<icon texture>,<icon uv x>,<icon uv y>,<icon width>,<icon height>}
+})
+-----
+  Heres a personal example, taken directly from one of my files:
+-----
+local actionWheel = require("action_wheel")
+actionWheel.loadFolders(actionWheel.pages["main"], {
+    {"toggles","Toggles","textures.icon_main",0,0,16,16},
+    {"funsies","Funsies","textures.icon_main",16,0,16,16},
+    {"poses","Poses & Sits","textures.icon_main",32,0,32,32},
+    {"accessories","Accessories & Clothes","textures.icon_main",0,16,32,32},
+    {"expressions","Face Expressions","textures.icon_main",16,48,16,16},
+    {"emotes","Emotes & Meme Animations","textures.icon_main",32,32,32,32}
+})
+-----
+  For questions regarding this please contact me!

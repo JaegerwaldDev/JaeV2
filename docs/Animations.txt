@@ -1,0 +1,43 @@
+Animation Setup
+  All animations require a specific setup. The systems only
+  work in "model.bbmodel". Two animations, "start" and "end"
+  need to be present. They include important Lua instructions,
+  that make the animations function properly. They are both
+  one frame long, snapping doesn't matter, and have looping 
+  set to "Play Once". They both only have one Lua instruction 
+  keyframe (requires Figura Blockbench addon).
+
+  Code for "start"
+-----
+models.cape:setVisible(false) -- May be removed if there is no custom cape & elytra.
+vanilla_model.CAPE:setVisible(false)
+vanilla_model.ELYTRA:setVisible(false)
+
+if host:isHost() then
+    renderer:setForcePaperdoll(true)
+end
+-----
+
+  Code for "end"
+-----
+models.cape:setVisible(true) -- May be removed if there is no custom cape & elytra.
+local toggles = require("toggles")
+vanilla_model.CAPE:setVisible(toggles.toggles["vanilla"]:isToggled())
+vanilla_model.ELYTRA:setVisible(toggles.toggles["vanilla"]:isToggled())
+
+if host:isHost() then
+    renderer:setForcePaperdoll(false)
+end
+-----
+
+  Alternative code for end if there are no toggles
+-----
+vanilla_model.CAPE:setVisible(true)
+vanilla_model.ELYTRA:setVisible(true)
+
+if host:isHost() then
+    renderer:setForcePaperdoll(false)
+end
+-----
+
+  If you need more info, please contact me.
